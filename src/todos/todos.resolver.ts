@@ -15,8 +15,15 @@ export class TodosResolver {
     return `your number is ${id}`;
   }
   @Mutation(() => Todo)
-  async addTodo(@Args('newTodoData') newTodoData: NewTodoInput): Promise<Todo> {
+  async creatTodo(
+    @Args('newTodoData') newTodoData: NewTodoInput,
+  ): Promise<Todo> {
     const todo = await this.todosService.createTodo(newTodoData);
     return todo;
+  }
+  @Query(() => [Todo])
+  async allTodo(): Promise<Todo[]> {
+    const todos = await this.todosService.allTodo();
+    return todos;
   }
 }

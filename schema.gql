@@ -4,7 +4,7 @@
 # -----------------------------------------------
 
 type Mutation {
-  addTodo(newTodoData: NewTodoInput!): Todo!
+  creatTodo(newTodoData: NewTodoInput!): Todo!
 }
 
 input NewTodoInput {
@@ -15,6 +15,7 @@ input NewTodoInput {
 type Query {
   helloWorld: String!
   test(id: Float!): String!
+  allTodo: [Todo!]!
 }
 
 type Todo {
