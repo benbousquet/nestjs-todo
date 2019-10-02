@@ -3,6 +3,21 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
+type Mutation {
+  addTodo(newTodoData: NewTodoInput!): Todo!
+}
+
+input NewTodoInput {
+  title: String!
+  completed: Boolean!
+}
+
 type Query {
   helloWorld: String!
+  test(id: Float!): String!
+}
+
+type Todo {
+  title: String!
+  completed: Boolean!
 }
