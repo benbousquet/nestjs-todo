@@ -4,10 +4,13 @@
 # -----------------------------------------------
 
 type Mutation {
-  creatTodo(newTodoData: NewTodoInput!): Todo!
+  createTodo(newTodoData: NewTodoInput!): Todo!
+  removeTodo(id: String!): Todo!
+  updateTodo(newTodoData: NewTodoInput!, id: String!): Todo!
 }
 
 input NewTodoInput {
+  id: String!
   title: String!
   completed: Boolean!
 }
@@ -16,9 +19,11 @@ type Query {
   helloWorld: String!
   test(id: Float!): String!
   allTodo: [Todo!]!
+  getTodo(id: String!): Todo!
 }
 
 type Todo {
+  id: String!
   title: String!
   completed: Boolean!
 }

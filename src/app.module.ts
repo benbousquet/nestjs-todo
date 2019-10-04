@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { TodosModule } from './todos/todos.module';
 import { GraphQLModule } from '@nestjs/graphql';
 import { MongooseModule } from '@nestjs/mongoose';
+require('dotenv').config();
 
 @Module({
   imports: [
@@ -9,9 +10,7 @@ import { MongooseModule } from '@nestjs/mongoose';
     GraphQLModule.forRoot({
       autoSchemaFile: 'schema.gql',
     }),
-    MongooseModule.forRoot(
-      'mongodb+srv://ben:123@cluster0-xwxht.azure.mongodb.net/todos?retryWrites=true&w=majority',
-    ),
+    MongooseModule.forRoot(process.env.MONGO_CONNECT_STRING),
   ],
 })
 export class AppModule {}
